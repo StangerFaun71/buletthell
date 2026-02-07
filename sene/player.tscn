@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://blri4gefkp7mf"]
+
+[ext_resource type="Script" path="res://script/CharacterBody2D.gd" id="1_uqhre"]
+[ext_resource type="PackedScene" uid="uid://dum8t7lyyhgj6" path="res://sene/Bullet.tscn" id="2_t5brd"]
+[ext_resource type="Texture2D" uid="uid://kupoixm6c8u" path="res://tank.png" id="3_v0bbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02hbr"]
+size = Vector2(20.9823, 20.6703)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_blicj"]
+radius = 1230.55
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(0, -73.015)
+script = ExtResource("1_uqhre")
+bullet_scene = ExtResource("2_t5brd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 19.015)
+scale = Vector2(1.17148, 1.17148)
+texture = ExtResource("3_v0bbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 19.015)
+scale = Vector2(3.58483, 3.68964)
+shape = SubResource("RectangleShape2D_02hbr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 16.015)
+scale = Vector2(-1.07863, 0.730318)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 4.28)
+scale = Vector2(-0.0271227, 0.0361637)
+shape = SubResource("CircleShape2D_blicj")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(0, -27.985)
+scale = Vector2(-1.62606, -0.556988)
+
+[node name="ShootTimer" type="Timer" parent="."]
