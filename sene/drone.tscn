@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckxutj8tphar7"]
+[gd_scene load_steps=6 format=3 uid="uid://ckxutj8tphar7"]
 
 [ext_resource type="Script" path="res://script/drone.gd" id="1_6l564"]
 [ext_resource type="Texture2D" uid="uid://l13a4p8k84mb" path="res://drone.png" id="1_qqccd"]
+[ext_resource type="Texture2D" uid="uid://c2b6f63emmw1s" path="res://healthbarUnder.png" id="3_dcvbj"]
+[ext_resource type="Texture2D" uid="uid://rlrpum7o04nk" path="res://healthbarProgress.png" id="4_b6gyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8oy4"]
 
@@ -15,5 +17,16 @@ texture = ExtResource("1_qqccd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.61692, 1.59899)
 shape = SubResource("RectangleShape2D_y8oy4")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CollisionShape2D"]
+offset_left = -5.25691
+offset_top = -15.9476
+offset_right = 58.7431
+offset_bottom = -0.947564
+scale = Vector2(0.164245, 0.494619)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("3_dcvbj")
+texture_progress = ExtResource("4_b6gyl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

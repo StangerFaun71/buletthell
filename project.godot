@@ -11,12 +11,18 @@ config_version=5
 [application]
 
 config/name="bulett hell"
+run/main_scene="res://sene/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://sene/icon.svg"
 
 [display]
 
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
+
+[gui]
+
+theme/custom_font="res://VCR_OSD_MONO_1.001.ttf"
 
 [input]
 
