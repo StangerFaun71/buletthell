@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl6u47axu2b1o"]
+[gd_scene load_steps=7 format=3 uid="uid://cl6u47axu2b1o"]
 
 [ext_resource type="PackedScene" uid="uid://blri4gefkp7mf" path="res://sene/player.tscn" id="1_6g48f"]
 [ext_resource type="Texture2D" uid="uid://baygg6o607qju" path="res://gund.png" id="1_lftcc"]
-[ext_resource type="Script" path="res://script/word.gd" id="1_mrd3i"]
 [ext_resource type="Texture2D" uid="uid://1j6u8jyy22o6" path="res://wall.png" id="2_pm1b5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whkno"]
@@ -68,8 +67,6 @@ sources/0 = SubResource("TileSetAtlasSource_whkno")
 sources/1 = SubResource("TileSetAtlasSource_f7v4y")
 
 [node name="word" type="Node2D"]
-script = ExtResource("1_mrd3i")
-p2 = Vector2(1550, 925)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(785, 514)
@@ -81,7 +78,3 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_6g48f")]
 position = Vector2(73, 68)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 # Movement properties
 @export var speed: float = 300.0
@@ -23,10 +24,13 @@ var is_focused: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_point: Marker2D = $ShootPoint
+@onready var fps = $Camera2D/CanvasLayer/fps
 
 # Signals
 signal player_hit
 signal player_died
+
+	
 
 func _ready() -> void:
 	# Setup shoot timer
@@ -158,6 +162,7 @@ func die() -> void:
 
 # Helper function to get the hitbox visibility (for debugging)
 func _process(_delta: float) -> void:
+	fps.text = str(Engine.get_frames_per_second())
 	if is_focused and hitbox:
 		# Make hitbox visible when focused (optional visual feedback)
 		hitbox.modulate = Color(1, 0, 0, 0.3)
